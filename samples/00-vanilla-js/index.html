@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Hello React!</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>
+        var state = 0;
+
+        // create elements
+        var $btnDec = document.createElement('button');
+        $btnDec.innerText = '-';
+        $btnDec.addEventListener('click', dec, false);
+
+        var $btnInc = document.createElement('button');
+        $btnInc.innerText = '+';
+        $btnInc.addEventListener('click', inc, false);
+        
+        var $value = document.createElement('span');
+        $value.innerText = state;
+
+        var $rootNode = document.getElementById('root');
+        $rootNode.appendChild($btnDec);
+        $rootNode.appendChild($value);
+        $rootNode.appendChild($btnInc);
+
+        function setState(newState) {
+            state = newState;
+            $value.innerText = state;
+        }
+
+        function inc() {
+            setState(state + 1);
+        }
+        function dec() {
+            setState(state - 1);
+        }
+    </script>
+
+</body>
+
+</html>
