@@ -2,62 +2,62 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Hello React!</title>
-    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+  <meta charset="utf-8">
+  <title>Hello React!</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
 </head>
 
 <body>
-    <div id="root"></div>
-    <script type="text/babel">
-        class Counter extends React.Component {
-            constructor(props) {
-                super(props);
-                this.state = {
-                    value: 0,
-                };
-                this.inc = this.inc.bind(this);
-                this.dec = this.dec.bind(this);
-            }
-            inc() {
-                this.setState({
-                    value: this.state.value + 1,
-                });
-            }
-            dec() {
-                this.setState({
-                    value: this.state.value - 1,
-                });
-            }
-            render() {
-                return (
-                    <div>
-                        <button onClick={this.dec}>-</button>
-                        {this.state.value}
-                        <button onClick={this.inc}>+</button>
-                    </div>
-                )
-            }
-        }
+  <div id="root"></div>
+  <script type="text/babel">
+    class Counter extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          value: 0,
+        };
+        this.inc = this.inc.bind(this);
+        this.dec = this.dec.bind(this);
+      }
+      inc() {
+        this.setState({
+          value: this.state.value + 1,
+        });
+      }
+      dec() {
+        this.setState({
+          value: this.state.value - 1,
+        });
+      }
+      render() {
+        return (
+          <div>
+            <button onClick={this.dec}>-</button>
+            {this.state.value}
+            <button onClick={this.inc}>+</button>
+          </div>
+        )
+      }
+    }
 
-        function App() {
-            return (
-                <div>
-                    <Counter/>
-                    <Counter/>
-                    <Counter/>
-                    <Counter/>
-                </div>
-            )
-        }
+    function App() {
+      return (
+        <div>
+          <Counter />
+          <Counter />
+          <Counter />
+          <Counter />
+        </div>
+      )
+    }
 
-        ReactDOM.render(
-            <App/>,
-            document.getElementById('root')
-        );
-    </script>
+    ReactDOM.render(
+      <App />,
+      document.getElementById('root')
+    );
+  </script>
 
 </body>
 

@@ -2,74 +2,74 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Hello React!</title>
-    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+  <meta charset="utf-8">
+  <title>Hello React!</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
 </head>
 
 <body>
-    <div id="root"></div>
-    <script type="text/babel">
-        function Counter(props) {
-            const {value, onInc, onDec} = props;
+  <div id="root"></div>
+  <script type="text/babel">
+    function Counter(props) {
+      const { value, onInc, onDec } = props;
 
-            return (
-                <div>
-                    <button onClick={onDec}>-</button>
-                    {value}
-                    <button onClick={onInc}>+</button>
-                </div>
-            )
-        }
+      return (
+        <div>
+          <button onClick={onDec}>-</button>
+          {value}
+          <button onClick={onInc}>+</button>
+        </div>
+      )
+    }
 
-        class App extends React.Component {
-            constructor(props) {
-                super(props);
-                this.state = {
-                    values: [0, 0, 0, 0],
-                };
-                this.inc = this.inc.bind(this);
-                this.dec = this.dec.bind(this);
+    class App extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          values: [0, 0, 0, 0],
+        };
+        this.inc = this.inc.bind(this);
+        this.dec = this.dec.bind(this);
+      }
+      inc(idx) {
+        const newVals = this.state.values.slice(0);
+        newVals[idx]++;
+        this.setState({
+          values: newVals,
+        });
+      }
+      dec(idx) {
+        const newVals = this.state.values.slice(0);
+        newVals[idx]--;
+        this.setState({
+          values: newVals,
+        });
+      }
+      render() {
+        return (
+          <div>
+            {
+              this.state.values.map((value, idx) => (
+                <Counter
+                  value={value}
+                  onInc={() => this.inc(idx)}
+                  onDec={() => this.dec(idx)}
+                  key={idx}
+                />
+              ))
             }
-            inc(idx) {
-                const newVals = this.state.values.slice(0);
-                newVals[idx]++;
-                this.setState({
-                    values: newVals,
-                });
-            }
-            dec(idx) {
-                const newVals = this.state.values.slice(0);
-                newVals[idx]--;
-                this.setState({
-                    values: newVals,
-                });
-            }
-            render() {
-                return (
-                    <div>
-                        {
-                            this.state.values.map((value, idx) => (
-                                <Counter
-                                key={idx}
-                                    value={value}
-                                    onInc={() => this.inc(idx)}
-                                    onDec={() => this.dec(idx)}
-                                />
-                            ))
-                        }
-                    </div>
-                )
-            }
-        }
+          </div>
+        )
+      }
+    }
 
-        ReactDOM.render(
-            <App/>,
-            document.getElementById('root')
-        );
-    </script>
+    ReactDOM.render(
+      <App />,
+      document.getElementById('root')
+    );
+  </script>
 
 </body>
 
