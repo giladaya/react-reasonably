@@ -49,6 +49,8 @@
         });
       }
       render() {
+        var sum = this.state.values.reduce(function(acc, val) { return acc + val; }, 0);
+
         return (
           <div>
             {
@@ -61,6 +63,7 @@
                 />
               ))
             }
+            Total: {sum}
           </div>
         )
       }

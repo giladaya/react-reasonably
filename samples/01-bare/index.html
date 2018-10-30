@@ -9,13 +9,13 @@
 </head>
 
 <body>
-  <h1>Count on Me</h1>
+  <h1>Count on Me (WIP)</h1>
   <div id="root"></div>
   <script>
     function Button(props) {
       return React.createElement(
         "button",
-        { type: "submit", onClick: () => alert('hi') },
+        { type: "submit", onClick: function() { alert('hi') } },
         props.label
       );
     }
